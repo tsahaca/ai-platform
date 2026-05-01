@@ -1,0 +1,20 @@
+{
+  "name": "tfidf-demo",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--name",
+    "tfidf-demo-devcontainer"
+  ],
+  "postCreateCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt ipykernel",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}
