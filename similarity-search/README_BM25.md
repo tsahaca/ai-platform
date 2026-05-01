@@ -1,4 +1,8 @@
-# Vector for ALL words
+# BM25 in one page
+
+![Alt](./images/bm25.png)
+
+## Vector for ALL words
 
 1. Full TF-IDF matrix
 2. Cosine similarity search

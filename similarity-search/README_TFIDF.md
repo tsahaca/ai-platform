@@ -1,4 +1,8 @@
-Here’s a clean **NumPy-based TF-IDF implementation** for your 3 documents.
+# TF and IDF in one page
+
+![Alt](./images/tfdf.png)
+
+## NumPy-based TF-IDF implementation** for 3 documents.
 
 ---
 
