@@ -1,0 +1,9 @@
+[
+  {"id": "d1", "title": "OpenShift DNS", "text": "OpenShift DNS resolves service names inside the cluster. Pods can use service DNS names for internal traffic."},
+  {"id": "d2", "title": "Solace TLS", "text": "Solace PubSub clients validate TLS certificates using the hostname and SAN. If the SAN is my-solace.example.com, clients should connect with that hostname."},
+  {"id": "d3", "title": "Route53 and NLB", "text": "Route53 can point a CNAME to an AWS Network Load Balancer. External clients reach services through the NLB."},
+  {"id": "d4", "title": "TF-IDF and BM25", "text": "TF-IDF and BM25 are lexical search algorithms. They rank documents based on term frequency and document frequency."},
+  {"id": "d5", "title": "Vector Search", "text": "Vector search uses embeddings and cosine similarity to find documents with similar meaning, even when exact words do not match."},
+  {"id": "d6", "title": "Hybrid Search", "text": "Hybrid search combines lexical search such as BM25 with semantic vector search. It improves search relevance for many RAG systems."},
+  {"id": "d7", "title": "RAG", "text": "Retrieval Augmented Generation retrieves relevant context from documents and sends it to a language model to answer questions."}
+]

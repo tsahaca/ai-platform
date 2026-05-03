@@ -1,0 +1,8 @@
+numpy
+scikit-learn
+matplotlib
+sentence-transformers
+faiss-cpu
+opensearch-py
+streamlit
+pandas

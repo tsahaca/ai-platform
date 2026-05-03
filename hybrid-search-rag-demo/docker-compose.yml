@@ -1,0 +1,29 @@
+services:
+  app:
+    container_name: hybrid-search-rag-demo-app
+    build: .
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    tty: true
+    stdin_open: true
+    depends_on:
+      - opensearch
+    ports:
+      - "8000:8000"
+  opensearch:
+    container_name: hybrid-search-rag-demo-opensearch
+    image: opensearchproject/opensearch:2.17.1
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin
+      - bootstrap.memory_lock=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+      - "9600:9600"

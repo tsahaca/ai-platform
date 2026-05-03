@@ -1,0 +1,40 @@
+{
+  "name": "vector-search-production-lab",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.yml"
+  ],
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "runServices": [
+    "opensearch",
+    "opensearch-dashboards",
+    "devcontainer"
+  ],
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [
+    8501,
+    9200,
+    5601
+  ],
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit"
+    },
+    "9200": {
+      "label": "OpenSearch"
+    },
+    "5601": {
+      "label": "OpenSearch Dashboards"
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}
