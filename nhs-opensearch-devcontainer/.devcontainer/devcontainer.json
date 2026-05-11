@@ -1,0 +1,36 @@
+{
+  "name": "nhs-vector-search-lab",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.yml"
+  ],
+  "service": "nhs-devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "runServices": [
+    "opensearch",
+    "opensearch-dashboards",
+    "nhs-devcontainer"
+  ],
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [
+    9200,
+    5601
+  ],
+  "portsAttributes": {
+    "9200": {
+      "label": "OpenSearch"
+    },
+    "5601": {
+      "label": "OpenSearch Dashboards"
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}

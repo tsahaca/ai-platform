@@ -1,0 +1,468 @@
+[
+  {
+    "id": "rel-perfect-fact-perfect-fluent",
+    "category": "all_good",
+    "query": "What is the capital of France?",
+    "relevant_docs": [
+      "doc_france_capital",
+      "doc_paris_profile"
+    ],
+    "retrieved_docs": [
+      "doc_france_capital",
+      "doc_paris_profile",
+      "doc_europe_geography",
+      "doc_france_food"
+    ],
+    "ranking_relevance": [
+      3,
+      3,
+      1,
+      0
+    ],
+    "ranking_scores": [
+      0.98,
+      0.91,
+      0.45,
+      0.2
+    ],
+    "source_context": "France's capital is Paris. Paris is the largest city in France and is located on the Seine River.",
+    "ground_truth": "Paris is the capital of France.",
+    "prediction": "Paris is the capital of France.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "correct",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "baseline perfect answer"
+  },
+  {
+    "id": "rel-high-fact-low-fluent-high",
+    "category": "dangerous_hallucination",
+    "query": "Who wrote Pride and Prejudice?",
+    "relevant_docs": [
+      "doc_austen_pride_prejudice"
+    ],
+    "retrieved_docs": [
+      "doc_austen_pride_prejudice",
+      "doc_austen_bio",
+      "doc_british_literature"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.95,
+      0.77,
+      0.55
+    ],
+    "source_context": "Pride and Prejudice is a novel by Jane Austen, first published in 1813.",
+    "ground_truth": "Jane Austen wrote Pride and Prejudice.",
+    "prediction": "Charlotte Bront\u00eb wrote Pride and Prejudice in 1813.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "incorrect",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "retrieval is good but generated answer hallucinates the author"
+  },
+  {
+    "id": "rel-low-fact-high-fluent-high",
+    "category": "irrelevant_but_true",
+    "query": "What causes tides on Earth?",
+    "relevant_docs": [
+      "doc_tides_gravity",
+      "doc_moon_tides"
+    ],
+    "retrieved_docs": [
+      "doc_earth_rotation",
+      "doc_solar_system",
+      "doc_ocean_currents"
+    ],
+    "ranking_relevance": [
+      0,
+      1,
+      1
+    ],
+    "ranking_scores": [
+      0.9,
+      0.7,
+      0.6
+    ],
+    "source_context": "Tides are mainly caused by the Moon's gravitational pull, with the Sun also contributing.",
+    "ground_truth": "Tides are mainly caused by the Moon's gravity, with some contribution from the Sun.",
+    "prediction": "Earth rotates once about every 24 hours.",
+    "expected_relevance_quality": "low",
+    "expected_factual_quality": "true_but_not_answering_question",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "answer is factually true but irrelevant"
+  },
+  {
+    "id": "partial-answer",
+    "category": "partial_correctness",
+    "query": "Name two AWS services used for serverless applications.",
+    "relevant_docs": [
+      "doc_aws_lambda",
+      "doc_aws_apigateway",
+      "doc_aws_serverless"
+    ],
+    "retrieved_docs": [
+      "doc_aws_lambda",
+      "doc_aws_ec2",
+      "doc_aws_apigateway",
+      "doc_aws_s3"
+    ],
+    "ranking_relevance": [
+      3,
+      0,
+      3,
+      1
+    ],
+    "ranking_scores": [
+      0.93,
+      0.85,
+      0.6,
+      0.5
+    ],
+    "source_context": "AWS Lambda and Amazon API Gateway are commonly used to build serverless applications.",
+    "ground_truth": "AWS Lambda and Amazon API Gateway are two AWS services used for serverless applications.",
+    "prediction": "AWS Lambda is used for serverless applications.",
+    "expected_relevance_quality": "medium",
+    "expected_factual_quality": "partially_correct",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "missing one required item"
+  },
+  {
+    "id": "unsupported-answer",
+    "category": "ungrounded_claim",
+    "query": "What was the company's revenue in 2024?",
+    "relevant_docs": [
+      "doc_company_2024_report"
+    ],
+    "retrieved_docs": [
+      "doc_company_2024_report",
+      "doc_company_press_release",
+      "doc_market_news"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.97,
+      0.81,
+      0.4
+    ],
+    "source_context": "The 2024 report states that revenue increased year over year, but it does not disclose the exact revenue amount.",
+    "ground_truth": "The exact 2024 revenue is not disclosed in the provided context.",
+    "prediction": "The company reported $4.2 billion in revenue in 2024.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "unsupported",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "should abstain because context lacks exact value"
+  },
+  {
+    "id": "ambiguous-query",
+    "category": "ambiguity",
+    "query": "Tell me about Apple.",
+    "relevant_docs": [
+      "doc_apple_company",
+      "doc_apple_fruit"
+    ],
+    "retrieved_docs": [
+      "doc_apple_company",
+      "doc_apple_fruit",
+      "doc_iphone_history",
+      "doc_orchard_farming"
+    ],
+    "ranking_relevance": [
+      2,
+      2,
+      1,
+      1
+    ],
+    "ranking_scores": [
+      0.88,
+      0.84,
+      0.62,
+      0.55
+    ],
+    "source_context": "Apple can refer to Apple Inc., a technology company, or apple, the fruit from an apple tree.",
+    "ground_truth": "Apple may refer to Apple Inc. or to the fruit; the query is ambiguous without more context.",
+    "prediction": "Apple is a technology company that makes the iPhone.",
+    "expected_relevance_quality": "medium",
+    "expected_factual_quality": "partially_correct",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "ambiguous entity should ideally ask for clarification"
+  },
+  {
+    "id": "numeric-near-miss",
+    "category": "numeric_accuracy",
+    "query": "What is 8 times 7?",
+    "relevant_docs": [
+      "doc_multiplication_table"
+    ],
+    "retrieved_docs": [
+      "doc_multiplication_table",
+      "doc_basic_arithmetic",
+      "doc_math_examples"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.99,
+      0.8,
+      0.3
+    ],
+    "source_context": "8 times 7 equals 56.",
+    "ground_truth": "56",
+    "prediction": "57",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "incorrect",
+    "expected_fluency_quality": "short_but_clear",
+    "edge_case": "small numeric error; token overlap metrics may be harsh but correct"
+  },
+  {
+    "id": "date-near-miss",
+    "category": "temporal_accuracy",
+    "query": "When did AWS Lambda become generally available?",
+    "relevant_docs": [
+      "doc_lambda_release_history"
+    ],
+    "retrieved_docs": [
+      "doc_lambda_release_history",
+      "doc_aws_reinvent_2014",
+      "doc_serverless_history"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.94,
+      0.76,
+      0.59
+    ],
+    "source_context": "AWS Lambda was announced at AWS re:Invent 2014 and became generally available in 2015.",
+    "ground_truth": "AWS Lambda became generally available in 2015.",
+    "prediction": "AWS Lambda became generally available in 2014.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "incorrect",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "temporal hallucination despite related context"
+  },
+  {
+    "id": "contradiction",
+    "category": "contradiction",
+    "query": "Is Kubernetes a container orchestration platform?",
+    "relevant_docs": [
+      "doc_kubernetes_overview"
+    ],
+    "retrieved_docs": [
+      "doc_kubernetes_overview",
+      "doc_container_orchestration",
+      "doc_docker_overview"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.96,
+      0.78,
+      0.42
+    ],
+    "source_context": "Kubernetes is an open-source platform for automating deployment, scaling, and management of containerized applications.",
+    "ground_truth": "Yes, Kubernetes is a container orchestration platform.",
+    "prediction": "No, Kubernetes is not used for container orchestration.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "contradiction",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "answer directly contradicts context"
+  },
+  {
+    "id": "verbose-answer",
+    "category": "verbosity",
+    "query": "What is the capital of Japan?",
+    "relevant_docs": [
+      "doc_japan_capital"
+    ],
+    "retrieved_docs": [
+      "doc_japan_capital",
+      "doc_tokyo_profile",
+      "doc_japan_history"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.97,
+      0.88,
+      0.44
+    ],
+    "source_context": "Tokyo is the capital of Japan.",
+    "ground_truth": "Tokyo is the capital of Japan.",
+    "prediction": "Tokyo is the capital of Japan, and it is also a large metropolitan area with many neighborhoods, train stations, restaurants, technology companies, museums, and tourist attractions.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "correct_with_extra_info",
+    "expected_fluency_quality": "fluent_but_verbose",
+    "edge_case": "extra details may reduce exact-match but answer is correct"
+  },
+  {
+    "id": "non-fluent-correct",
+    "category": "fluency_failure",
+    "query": "What is the capital of Germany?",
+    "relevant_docs": [
+      "doc_germany_capital"
+    ],
+    "retrieved_docs": [
+      "doc_germany_capital",
+      "doc_berlin_profile",
+      "doc_europe_capitals"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.95,
+      0.82,
+      0.51
+    ],
+    "source_context": "Berlin is the capital of Germany.",
+    "ground_truth": "Berlin is the capital of Germany.",
+    "prediction": "Berlin capital Germany yes is.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "mostly_correct",
+    "expected_fluency_quality": "non_fluent",
+    "edge_case": "factually understandable but grammatically poor"
+  },
+  {
+    "id": "repetition",
+    "category": "fluency_repetition",
+    "query": "Summarize what OpenSearch is in one sentence.",
+    "relevant_docs": [
+      "doc_opensearch_overview"
+    ],
+    "retrieved_docs": [
+      "doc_opensearch_overview",
+      "doc_search_engine",
+      "doc_vector_search"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.92,
+      0.7,
+      0.63
+    ],
+    "source_context": "OpenSearch is an open-source search and analytics suite used for full-text search, log analytics, and vector search use cases.",
+    "ground_truth": "OpenSearch is an open-source search and analytics suite.",
+    "prediction": "OpenSearch is is is an open-source search search and analytics analytics suite.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "mostly_correct",
+    "expected_fluency_quality": "low_due_to_repetition",
+    "edge_case": "repeated tokens should hurt fluency"
+  },
+  {
+    "id": "empty-answer",
+    "category": "empty_output",
+    "query": "What is the capital of Italy?",
+    "relevant_docs": [
+      "doc_italy_capital"
+    ],
+    "retrieved_docs": [
+      "doc_italy_capital",
+      "doc_rome_profile",
+      "doc_europe_capitals"
+    ],
+    "ranking_relevance": [
+      3,
+      2,
+      1
+    ],
+    "ranking_scores": [
+      0.96,
+      0.83,
+      0.5
+    ],
+    "source_context": "Rome is the capital of Italy.",
+    "ground_truth": "Rome is the capital of Italy.",
+    "prediction": "",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "missing_answer",
+    "expected_fluency_quality": "empty",
+    "edge_case": "empty model output"
+  },
+  {
+    "id": "no-relevant-retrieved",
+    "category": "retrieval_failure",
+    "query": "What is BM25 used for?",
+    "relevant_docs": [
+      "doc_bm25_ranking",
+      "doc_information_retrieval"
+    ],
+    "retrieved_docs": [
+      "doc_neural_networks",
+      "doc_transformers",
+      "doc_gpu_training"
+    ],
+    "ranking_relevance": [
+      0,
+      0,
+      0
+    ],
+    "ranking_scores": [
+      0.91,
+      0.84,
+      0.77
+    ],
+    "source_context": "BM25 is a ranking function used in information retrieval and search engines to estimate document relevance to a query.",
+    "ground_truth": "BM25 is used for ranking documents in information retrieval and search engines.",
+    "prediction": "BM25 is a loss function used to train neural networks on GPUs.",
+    "expected_relevance_quality": "zero",
+    "expected_factual_quality": "incorrect",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "complete retrieval failure causes bad generation"
+  },
+  {
+    "id": "adversarial-overlap",
+    "category": "lexical_overlap_trap",
+    "query": "Did Marie Curie discover penicillin?",
+    "relevant_docs": [
+      "doc_penicillin_discovery",
+      "doc_marie_curie"
+    ],
+    "retrieved_docs": [
+      "doc_marie_curie",
+      "doc_penicillin_discovery",
+      "doc_science_history"
+    ],
+    "ranking_relevance": [
+      2,
+      3,
+      1
+    ],
+    "ranking_scores": [
+      0.91,
+      0.89,
+      0.4
+    ],
+    "source_context": "Penicillin was discovered by Alexander Fleming. Marie Curie conducted pioneering research on radioactivity.",
+    "ground_truth": "No. Penicillin was discovered by Alexander Fleming, not Marie Curie.",
+    "prediction": "Yes, Marie Curie discovered penicillin.",
+    "expected_relevance_quality": "high",
+    "expected_factual_quality": "incorrect_contradiction",
+    "expected_fluency_quality": "fluent",
+    "edge_case": "high lexical overlap but opposite meaning"
+  }
+]

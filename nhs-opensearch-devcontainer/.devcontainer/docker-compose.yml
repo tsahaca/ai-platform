@@ -1,0 +1,12 @@
+services:
+  nhs-devcontainer:
+#    image: mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
+    image: mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
+    volumes:
+      - ..:/workspaces/${localWorkspaceFolderBasename}:cached
+    command: sleep infinity
+    depends_on:
+      - opensearch
+    networks:
+      - default
+      - nhs-search-net

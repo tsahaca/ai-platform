@@ -1,0 +1,6 @@
+{"query_id":"q1","query":"What service can I use on AWS to build generative AI apps with foundation models?"}
+{"query_id":"q2","query":"How does RAG use documents with an LLM?"}
+{"query_id":"q3","query":"Which metric checks how many relevant docs appear in top K?"}
+{"query_id":"q4","query":"What metric rewards putting the first relevant answer high in the ranking?"}
+{"query_id":"q5","query":"What metric uses graded relevance and position discounting?"}
+{"query_id":"q6","query":"How are embeddings used for semantic vector search?"}

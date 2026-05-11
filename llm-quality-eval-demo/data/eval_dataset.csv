@@ -1,0 +1,7 @@
+id,question,reference_answer,candidate_answer
+1,What is Amazon S3?,Amazon S3 is an object storage service used to store and retrieve data at scale.,Amazon S3 is an object storage service for storing and retrieving files and data at scale.
+2,What is the capital of France?,Paris is the capital of France.,Lyon is the capital of France.
+3,What does recall measure in search?,Recall measures the fraction of all relevant items that were retrieved.,Recall means how many of the relevant documents the system successfully retrieved.
+4,What is OpenSearch used for?,OpenSearch is used for search analytics log analysis and vector search workloads.,OpenSearch is a database for sending emails.
+5,Explain fluency in LLM evaluation.,Fluency measures whether the answer is grammatically correct natural and easy to read.,Fluency answer good words maybe understandable not grammar.
+6,What is RAG?,RAG combines retrieval of external knowledge with generation from a language model.,RAG combines search over external documents with an LLM-generated answer.

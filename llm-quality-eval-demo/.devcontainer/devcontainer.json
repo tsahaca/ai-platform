@@ -1,0 +1,21 @@
+{
+  "name": "LLM Quality Eval Demo",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit LLM Quality Eval Demo",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}

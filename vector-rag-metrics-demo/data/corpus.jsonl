@@ -1,0 +1,10 @@
+{"doc_id":"doc_aws_bedrock","text":"Amazon Bedrock is a managed AWS service for building generative AI applications using foundation models through APIs."}
+{"doc_id":"doc_rag","text":"Retrieval Augmented Generation, or RAG, retrieves relevant documents and provides them as context to a language model."}
+{"doc_id":"doc_opensearch_vector","text":"OpenSearch supports vector search using k-NN indexes and approximate nearest neighbor algorithms such as HNSW."}
+{"doc_id":"doc_faiss","text":"FAISS is a library for efficient similarity search over dense vectors and supports indexes such as Flat, IVF, and HNSW."}
+{"doc_id":"doc_recall","text":"Recall@K measures how many relevant documents are retrieved within the top K results compared with all relevant documents."}
+{"doc_id":"doc_mrr","text":"Mean Reciprocal Rank evaluates how early the first relevant result appears in a ranked list."}
+{"doc_id":"doc_ndcg","text":"nDCG evaluates ranking quality using graded relevance and discounts documents that appear lower in the result list."}
+{"doc_id":"doc_bm25","text":"BM25 is a lexical ranking method that scores documents using term frequency, inverse document frequency, and length normalization."}
+{"doc_id":"doc_embedding","text":"Embeddings convert text into numerical vectors so semantic similarity can be measured using cosine similarity or dot product."}
+{"doc_id":"doc_hallucination","text":"In RAG systems, hallucination can be reduced by grounding generated answers in retrieved source documents."}
