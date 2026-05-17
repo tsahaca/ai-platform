@@ -1,0 +1,64 @@
+services:
+  opensearch:
+    image: opensearchproject/opensearch:2.15.0
+    container_name: bge-demo-opensearch
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Str0ngDemoPass!2026
+      - bootstrap.memory_lock=true
+      - OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  dashboards:
+    image: opensearchproject/opensearch-dashboards:2.15.0
+    container_name: bge-demo-dashboards
+    environment:
+      - OPENSEARCH_HOSTS=["http://opensearch:9200"]
+      - DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
+    ports:
+      - "5601:5601"
+    depends_on:
+      opensearch:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: bge-demo-app
+    working_dir: /workspace
+    volumes:
+      - .:/workspace:cached
+      - hf-cache:/home/vscode/.cache/huggingface
+    environment:
+      - OPENSEARCH_URL=http://opensearch:9200
+      - INDEX_NAME=bge_reranker_docs
+      - EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - RERANKER_MODEL=BAAI/bge-reranker-base
+    ports:
+      - "8501:8501"
+    depends_on:
+      opensearch:
+        condition: service_healthy
+    command: sleep infinity
+
+volumes:
+  opensearch-data:
+  hf-cache:

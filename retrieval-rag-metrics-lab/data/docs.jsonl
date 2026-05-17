@@ -1,0 +1,12 @@
+{"id":"d1","title":"ADHD overview","category":"health","text":"ADHD is a condition that can affect attention, focus, impulse control, and activity levels in children and adults."}
+{"id":"d2","title":"ADHD medication side effects","category":"health","text":"ADHD medicines can cause side effects such as appetite loss, sleep problems, headaches, mood changes, and increased heart rate."}
+{"id":"d3","title":"ADHD treatment options","category":"health","text":"Treatment for ADHD can include behavioral therapy, medication, coaching, school support, and lifestyle routines."}
+{"id":"d4","title":"Anxiety symptoms","category":"health","text":"Anxiety can cause worry, restlessness, sleep problems, panic attacks, and difficulty concentrating."}
+{"id":"d5","title":"Heart disease symptoms","category":"health","text":"Heart disease symptoms may include chest pain, shortness of breath, fatigue, dizziness, and swelling in the legs."}
+{"id":"d6","title":"AWS iam PassRole policy","category":"aws","text":"The iam:PassRole permission allows a user or service to pass an IAM role to an AWS service when creating resources."}
+{"id":"d7","title":"AWS SCP guardrails","category":"aws","text":"Service control policies define permission guardrails for accounts in AWS Organizations and can restrict actions across member accounts."}
+{"id":"d8","title":"OpenSearch BM25 ranking","category":"search","text":"OpenSearch uses BM25 as the default lexical ranking algorithm for matching query terms against indexed documents."}
+{"id":"d9","title":"Vector search with HNSW","category":"search","text":"HNSW is a graph based approximate nearest neighbor algorithm used for fast vector similarity search."}
+{"id":"d10","title":"Reranking in RAG","category":"search","text":"A reranker scores query and document pairs after initial retrieval to improve the order of candidate passages for RAG."}
+{"id":"d11","title":"Keyword stuffing example","category":"search","text":"ADHD ADHD ADHD ADHD ADHD ADHD ADHD treatment treatment treatment keyword repeated many times without useful context."}
+{"id":"d12","title":"SOAP XML validation","category":"integration","text":"SOAP XML messages can be validated against an XSD schema to check element structure, namespaces, and data types."}

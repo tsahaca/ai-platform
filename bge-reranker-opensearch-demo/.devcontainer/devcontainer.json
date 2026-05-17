@@ -1,0 +1,45 @@
+{
+  "name": "BGE Reranker + OpenSearch Demo",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "runServices": ["opensearch", "dashboards", "app"],
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [9200, 5601, 8501],
+  "portsAttributes": {
+    "9200": {
+      "label": "OpenSearch API",
+      "onAutoForward": "notify"
+    },
+    "5601": {
+      "label": "OpenSearch Dashboards",
+      "onAutoForward": "openBrowser"
+    },
+    "8501": {
+      "label": "Streamlit UI",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "containerEnv": {
+    "PYTHONPATH": "/workspace",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
+  },
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "postAttachCommand": "bash scripts/wait-for-opensearch.sh || true",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": false,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "redhat.vscode-yaml",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}

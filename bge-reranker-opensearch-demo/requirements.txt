@@ -1,0 +1,11 @@
+opensearch-py==2.6.0
+sentence-transformers==3.0.1
+FlagEmbedding==1.2.10
+torch>=2.2.0
+rank-bm25==0.2.2
+numpy==1.26.4
+pandas==2.2.2
+streamlit==1.36.0
+rich==13.7.1
+jupyter==1.0.0
+scikit-learn==1.5.1

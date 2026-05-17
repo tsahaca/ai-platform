@@ -1,0 +1,14 @@
+[
+  {"id":"bm25-001","title":"BM25 lexical ranking","category":"search","text":"BM25 is a lexical information retrieval ranking function. It scores documents by query term frequency, inverse document frequency, and document length normalization."},
+  {"id":"tfidf-001","title":"TF-IDF basics","category":"search","text":"TF-IDF ranks documents using term frequency and inverse document frequency. It is simpler than BM25 and does not use term frequency saturation."},
+  {"id":"hnsw-001","title":"HNSW approximate nearest neighbor","category":"vector-search","text":"HNSW builds a multi-layer graph for approximate nearest neighbor search. It often provides high recall and low latency for vector databases."},
+  {"id":"ivf-001","title":"IVF vector index","category":"vector-search","text":"IVF partitions vector space into clusters. Search probes a subset of clusters to reduce latency and memory pressure, sometimes at the cost of recall."},
+  {"id":"rag-001","title":"RAG pipeline","category":"rag","text":"Retrieval augmented generation retrieves relevant chunks from a search system and provides them as context to a large language model for answer generation."},
+  {"id":"rerank-001","title":"Cross encoder reranking","category":"reranking","text":"A reranker reads the query and candidate document together and produces a relevance score. Reranking improves the ordering of results retrieved by BM25 or vector search."},
+  {"id":"bge-001","title":"BGE reranker","category":"reranking","text":"BGE reranker models such as bge-reranker-base and bge-reranker-v2-m3 are cross-encoder models that score query and passage pairs for relevance."},
+  {"id":"opensearch-001","title":"OpenSearch hybrid search","category":"opensearch","text":"OpenSearch supports keyword search with BM25 and vector search with k-NN indexes. Hybrid search combines lexical and semantic retrieval signals."},
+  {"id":"bedrock-001","title":"Amazon Bedrock knowledge bases","category":"aws","text":"Amazon Bedrock Knowledge Bases can connect foundation models to enterprise data sources by retrieving relevant chunks from a vector store."},
+  {"id":"finance-001","title":"Fixed income portfolio analytics","category":"finance","text":"Fixed income portfolio analytics often require searching issuer, sector, duration, spread, yield, benchmark, and risk attribution documents."},
+  {"id":"health-001","title":"Heart attack symptoms","category":"health","text":"Myocardial infarction, commonly called a heart attack, can include chest pain, shortness of breath, nausea, sweating, and pain radiating to the arm or jaw."},
+  {"id":"health-002","title":"Healthy heart diet","category":"health","text":"A heart healthy diet includes vegetables, fruits, whole grains, lean proteins, and reduced saturated fat. It is different from emergency heart attack symptoms."}
+]
